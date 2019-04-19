@@ -1,0 +1,29 @@
+interface Node {
+  id: ID!
+}
+
+type Query {
+    continents: [Continent]
+}
+
+type Continent {
+    code: ID
+    name: String
+}
+
+type Mutation {
+    LoginEmail(input: LoginEmailInput!) : TokenPayload
+}
+
+input LoginEmailInput {
+    email: String!
+    password: String!
+}
+
+type TokenPayload {
+    token: String
+    error: String
+    clientMutationId: String
+}
+
+

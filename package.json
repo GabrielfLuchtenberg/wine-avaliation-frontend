@@ -1,0 +1,41 @@
+{
+  "name": "bfrontend",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "adb:setup": "adb connect 192.168.56.101:5555 && adb -s 192.168.56.101:5555 reverse tcp:8081 tcp:8081 && adb -s 192.168.56.101:5555 reverse tcp:5000 tcp:5000",
+    "android:run": "yarn adb:setup && react-native run-android",
+    "android:start": "yarn adb:setup && react-native start",
+    "test": "jest",
+    "relay": "relay-compiler --src ./src --schema data/schema.graphql",
+    "relay:watch": "yarn relay --watch"
+  },
+  "dependencies": {
+    "formik": "^1.5.2",
+    "graphql": "^14.2.1",
+    "react": "16.8.3",
+    "react-native": "0.59.4",
+    "react-native-gesture-handler": "^1.1.0",
+    "react-native-svg": "^9.4.0",
+    "react-native-svg-uri": "^1.2.3",
+    "react-navigation": "^3.8.1",
+    "react-relay": "^3.0.0",
+    "relay": "^0.8.0-1",
+    "styled-components": "^4.2.0",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
+    "babel-jest": "^24.7.1",
+    "babel-plugin-relay": "^3.0.0",
+    "jest": "^24.7.1",
+    "metro-react-native-babel-preset": "^0.53.1",
+    "react-test-renderer": "16.8.3",
+    "relay-compiler": "^3.0.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
