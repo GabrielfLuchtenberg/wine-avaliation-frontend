@@ -1,5 +1,6 @@
 
 import { Environment, Network, RecordSource, Store } from "relay-runtime";
+import deviceStorage from "../storage/device";
 
 function fetchQuery(operation, variables, cacheConfig, uploadables) {
     return fetch("http://localhost:5000/graphql", {
@@ -7,7 +8,7 @@ function fetchQuery(operation, variables, cacheConfig, uploadables) {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            // Auth Headers goes here
+            Authorization: deviceStorage.loadJWT()
         },
         body: JSON.stringify({
             query: operation.text,

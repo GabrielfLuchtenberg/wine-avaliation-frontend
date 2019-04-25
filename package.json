@@ -33,7 +33,11 @@
     "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",
     "react-test-renderer": "16.8.3",
-    "relay-compiler": "^3.0.0"
+    "relay-compiler": "^3.0.0",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "react-dom": "16.8.3",
+    "prop-types": "^15.7.2"
   },
   "jest": {
     "preset": "react-native"

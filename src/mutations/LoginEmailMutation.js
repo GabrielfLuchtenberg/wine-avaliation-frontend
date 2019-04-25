@@ -11,12 +11,11 @@ const mutation = graphql`
   }
 `;
 
-const commit = (email, password) => {
+const commit = ({ email, password }) => {
   const variables = {
     input: {
       email,
       password
-
     }
   };
   return new Promise((resolve, reject) => {
@@ -24,7 +23,6 @@ const commit = (email, password) => {
       mutation, //Here we pass our GraphQL mutation
       variables, //Passing our parameters
       onCompleted: (response, errors) => {
-        console.log(response);
         resolve(response.LoginEmail); // here you can resolve the User connection updated by the mutation and update your render
         // alert('A new user has been added') // showing a alert to show that a new user has been added
       },

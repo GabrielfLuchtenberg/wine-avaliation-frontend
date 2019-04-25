@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash c4b66470298436240c55ca345020e580
+ * @relayHash eef840d0255d5e00ba6dd0cef018adec
  */
 
 /* eslint-disable */
@@ -12,6 +12,7 @@ import type { ConcreteRequest } from 'relay-runtime';
 export type LoginEmailInput = {|
   email: string,
   password: string,
+  clientMutationId?: ?string,
 |};
 export type LoginEmailMutationVariables = {|
   input: LoginEmailInput
@@ -63,7 +64,7 @@ v1 = [
         "type": "LoginEmailInput!"
       }
     ],
-    "concreteType": "TokenPayload",
+    "concreteType": "LoginEmailPayload",
     "plural": false,
     "selections": [
       {

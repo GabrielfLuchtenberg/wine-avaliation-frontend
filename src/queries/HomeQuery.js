@@ -19,28 +19,28 @@ const Welcome = styled.Text`
     margin: 10px;
 `
 
-class HomeScreen extends React.Component {
-    static navigationOptions = {
-        title: "Home",
-    };
-    render() {
-        return (
-            <Container >
-                <Welcome>Home   sScreen</Welcome>
-                {
-                    this.props.continents &&
-                    this.props.continents.map(continent => (<Text key={continent.code}>{continent.name}</Text>))
-                }
-            </Container>
-        );
-    }
-}
+const HomeComponent = props => (
+    <Container >
+        <Welcome>Home   sScreen</Welcome>
+        {
+            props.me &&
+            props.me.name
+        }
+    </Container>
+)
 
+HomeComponent.navigationOptions = {
+    title: "Home",
+}
 
 const query = graphql`
     query HomeQuery {
-        continents {
-            name
+        users {
+            edges {
+                node {
+                    name
+                }
+            }
         }
     }
 `;
@@ -48,14 +48,13 @@ const query = graphql`
 export default () => <QueryRenderer
     environment={env} //Here is the enviroment that we configured before
     query={query} //And here goes your GraphQL query
-    render={
-        ({ error, props }) => {
-            if (error) {
-                return (<Text>Error</Text>);
-            } else if (props) {
-                return (<HomeScreen {...props} />);
-            }
-            return (<Text>loading</Text>);
+    render={({ error, props }) => {
+        if (error) {
+            return (<Text>Error</Text>);
+        } else if (props) {
+            return (<HomeComponent {...props} />);
         }
+        return (<Text>loading</Text>);
+    }
     }
 />;

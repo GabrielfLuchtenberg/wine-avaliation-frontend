@@ -5,6 +5,9 @@ import { Formik, ErrorMessage } from 'formik'
 import * as Yup from 'yup';
 import Logo from '../UI/logo';
 import commitLogin from '../mutations/LoginEmailMutation'
+import { InputError, InputGroup } from '../UI';
+import routes from '../routes.json'
+
 
 const LoginButton = styled.TouchableOpacity`
     alignSelf: stretch
@@ -32,7 +35,6 @@ const LoginInput = styled.TextInput`
     backgroundColor: #ffffff
     borderWidth: 0.5
     borderColor: #cccccc
-    marginTop: 15
     alignSelf: stretch
     textAlign: center
 `
@@ -51,34 +53,37 @@ const Login = (props) => (
         <Formik
             initialValues={{ email: '', password: '' }}
             onSubmit={async values => {
-                console.log('submit')
-                const response = await commitLogin(values)
-                console.log(response)
+                const { token } = await commitLogin(values)
+                props.navigation.navigate(routes.home)
             }}
             validationSchema={SignupSchema}
         >
             {props => (
                 <Fragment>
+                    <InputGroup>
+                        <InputError><ErrorMessage name="email" /></InputError>
+                        <LoginInput
+                            placeholder="E-mail"
+                            autoCapitalize="none"
+                            onChangeText={props.handleChange('email')}
+                            onBlur={props.handleBlur('email')}
+                            value={props.values.email}
+                        />
+                    </InputGroup>
 
-                    <Text><ErrorMessage name="email" /></Text>
-                    <LoginInput
-                        placeholder="E-mail"
-                        autoCapitalize="none"
-                        onChangeText={props.handleChange('email')}
-                        onBlur={props.handleBlur('email')}
-                        value={props.values.email}
-                    />
+                    <InputGroup>
 
+                        <InputError><ErrorMessage name="password" /></InputError>
+                        <LoginInput
+                            placeholder="Password"
+                            secureTextEntry={true}
+                            autoCapitalize="none"
+                            onChangeText={props.handleChange('password')}
+                            onBlur={props.handleBlur('password')}
+                            value={props.values.password}
+                        />
+                    </InputGroup>
 
-                    <Text><ErrorMessage name="password" /></Text>
-                    <LoginInput
-                        placeholder="Password"
-                        secureTextEntry={true}
-                        autoCapitalize="none"
-                        onChangeText={props.handleChange('password')}
-                        onBlur={props.handleBlur('password')}
-                        value={props.values.password}
-                    />
 
                     <LoginButton onPress={props.handleSubmit} title="Submit" >
                         <LoginPlaceholderText>Login</LoginPlaceholderText>
@@ -91,7 +96,7 @@ const Login = (props) => (
 )
 
 Login.navigationOptions = {
-    title: "Login"
+    header: null
 }
 
 export default Login;

@@ -2,23 +2,19 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import HomeQuery from '../queries/HomeQuery';
+import LogoutButton from '../components/LogoutButton';
 
-export default class HomeScreen extends Component {
-    static navigationOptions = ({ navigation }) => {
-        return {
-            title: 'Home',
-        }
-    };
-    render() {
-        const params = this.props.navigation.state.params;
-        return (
-            <HomeView>
-                <HomeQuery params={params} />
-            </HomeView>
-        );
+const HomeScreen = (props) => (
+    <HomeView>
+        <HomeQuery />
+    </HomeView>
+);
+HomeScreen.navigationOptions = ({ navigation }) => {
+    return {
+        title: 'Home',
     }
-}
-
+};
 const HomeView = styled.View`
   flex: 1;
 `;
+export default HomeScreen

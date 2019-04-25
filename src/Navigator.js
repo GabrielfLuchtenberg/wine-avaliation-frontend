@@ -1,22 +1,21 @@
 import { createStackNavigator } from "react-navigation";
 import { HomeScreen, LoginScreen } from './screens'
-
+import routes from './routes.json'
 const navigationPersistenceKey = __DEV__ ? "NavigationStateDEV" : null;
-
-const configuration = {
-    initialRouteName: "Login",
-    persistenceKey: navigationPersistenceKey
-}
-
+console.log(routes)
 const appScreens = {
-    Login: {
+    [routes.login]: {
         screen: LoginScreen
     },
-    Home: {
+    [routes.home]: {
         screen: HomeScreen
     }
 }
 
-const AppNavigator = createStackNavigator(appScreens, configuration);
+const configuration = {
+    initialRouteName: routes.home,
+    persistenceKey: navigationPersistenceKey
+}
 
+const AppNavigator = createStackNavigator(appScreens, configuration);;
 export default AppNavigator;
