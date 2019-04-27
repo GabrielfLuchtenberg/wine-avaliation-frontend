@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import deviceStorage from '../storage/device';
+// import deviceStorage from '../storage/device';
 import routes from '../routes.json'
 const Button = styled.TouchableOpacity`
     height: 25
@@ -15,7 +15,7 @@ const Text = styled.Text`
 `
 
 const logout = async (navigation) => {
-    await deviceStorage.deleteJWT()
+    // await deviceStorage.deleteJWT()
     navigation.navigate(routes.login)
 };
 

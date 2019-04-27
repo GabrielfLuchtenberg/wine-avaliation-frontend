@@ -3,18 +3,17 @@ import styled from 'styled-components';
 
 import HomeQuery from '../queries/HomeQuery';
 import LogoutButton from '../components/LogoutButton';
+import { Container } from '../UI';
 
 const HomeScreen = (props) => (
-    <HomeView>
+    <Container>
         <HomeQuery />
-    </HomeView>
+    </Container>
 );
 HomeScreen.navigationOptions = ({ navigation }) => {
     return {
         title: 'Home',
     }
 };
-const HomeView = styled.View`
-  flex: 1;
-`;
+
 export default HomeScreen
