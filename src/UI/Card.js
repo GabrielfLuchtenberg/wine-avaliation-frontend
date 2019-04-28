@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const CardWrapper = styled.View`
     backgroundColor: white;
-    max-height: 125px;
+    height: 130px;
     border: 1px solid #333333;
     border-radius:1px;
     margin-bottom:15px;
@@ -23,4 +23,4 @@ const Card = ({ children }) => (
 Card.propTypes = {
     children: PropTypes.node.isRequired
 }
-export default Card;
+export default Card

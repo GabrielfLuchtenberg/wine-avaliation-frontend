@@ -9,7 +9,8 @@ const Text = styled.Text`
     color: #D4D4D4;
 `
 const Container = styled.View`
-    width: ${({ width }) => width}
+    width: ${({ width }) => width};
+    padding-top: 15px;
 `
 const TextWithLabel = ({ text, label, width = '100%', ...otherProps }) => (
     <Container width={width} {...otherProps}>
@@ -22,4 +23,4 @@ const TextWithLabel = ({ text, label, width = '100%', ...otherProps }) => (
     </Container >
 )
 
-export default TextWithLabel;
+export default TextWithLabel

@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 27fd58f73e79f51695a734b1625550b6
+ * @relayHash 34ae3534102f17456802e1ee7ec4de14
  */
 
 /* eslint-disable */
@@ -11,10 +11,12 @@
 import type { ConcreteRequest } from 'relay-runtime';
 export type HomeQueryVariables = {||};
 export type HomeQueryResponse = {|
-  +users: ?{|
+  +wines: ?{|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
-        +name: ?string
+        +id: string,
+        +name: ?string,
+        +brand: ?string,
       |}
     |}>
   |}
@@ -28,11 +30,12 @@ export type HomeQuery = {|
 
 /*
 query HomeQuery {
-  users {
+  wines {
     edges {
       node {
-        name
         id
+        name
+        brand
       }
     }
   }
@@ -40,13 +43,62 @@ query HomeQuery {
 */
 
 const node/*: ConcreteRequest*/ = (function(){
-var v0 = {
-  "kind": "ScalarField",
-  "alias": null,
-  "name": "name",
-  "args": null,
-  "storageKey": null
-};
+var v0 = [
+  {
+    "kind": "LinkedField",
+    "alias": null,
+    "name": "wines",
+    "storageKey": null,
+    "args": null,
+    "concreteType": "WineConnection",
+    "plural": false,
+    "selections": [
+      {
+        "kind": "LinkedField",
+        "alias": null,
+        "name": "edges",
+        "storageKey": null,
+        "args": null,
+        "concreteType": "WineEdge",
+        "plural": true,
+        "selections": [
+          {
+            "kind": "LinkedField",
+            "alias": null,
+            "name": "node",
+            "storageKey": null,
+            "args": null,
+            "concreteType": "Wine",
+            "plural": false,
+            "selections": [
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "id",
+                "args": null,
+                "storageKey": null
+              },
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "name",
+                "args": null,
+                "storageKey": null
+              },
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "brand",
+                "args": null,
+                "storageKey": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+];
 return {
   "kind": "Request",
   "fragment": {
@@ -55,100 +107,23 @@ return {
     "type": "Query",
     "metadata": null,
     "argumentDefinitions": [],
-    "selections": [
-      {
-        "kind": "LinkedField",
-        "alias": null,
-        "name": "users",
-        "storageKey": null,
-        "args": null,
-        "concreteType": "UserConnection",
-        "plural": false,
-        "selections": [
-          {
-            "kind": "LinkedField",
-            "alias": null,
-            "name": "edges",
-            "storageKey": null,
-            "args": null,
-            "concreteType": "UserEdge",
-            "plural": true,
-            "selections": [
-              {
-                "kind": "LinkedField",
-                "alias": null,
-                "name": "node",
-                "storageKey": null,
-                "args": null,
-                "concreteType": "User",
-                "plural": false,
-                "selections": [
-                  (v0/*: any*/)
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    "selections": (v0/*: any*/)
   },
   "operation": {
     "kind": "Operation",
     "name": "HomeQuery",
     "argumentDefinitions": [],
-    "selections": [
-      {
-        "kind": "LinkedField",
-        "alias": null,
-        "name": "users",
-        "storageKey": null,
-        "args": null,
-        "concreteType": "UserConnection",
-        "plural": false,
-        "selections": [
-          {
-            "kind": "LinkedField",
-            "alias": null,
-            "name": "edges",
-            "storageKey": null,
-            "args": null,
-            "concreteType": "UserEdge",
-            "plural": true,
-            "selections": [
-              {
-                "kind": "LinkedField",
-                "alias": null,
-                "name": "node",
-                "storageKey": null,
-                "args": null,
-                "concreteType": "User",
-                "plural": false,
-                "selections": [
-                  (v0/*: any*/),
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "name": "id",
-                    "args": null,
-                    "storageKey": null
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    "selections": (v0/*: any*/)
   },
   "params": {
     "operationKind": "query",
     "name": "HomeQuery",
     "id": null,
-    "text": "query HomeQuery {\n  users {\n    edges {\n      node {\n        name\n        id\n      }\n    }\n  }\n}\n",
+    "text": "query HomeQuery {\n  wines {\n    edges {\n      node {\n        id\n        name\n        brand\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '70817a429688927e5ae6495c7d1477c1';
+(node/*: any*/).hash = '36a674be55a3438e22c7934dd89bcdb1';
 module.exports = node;

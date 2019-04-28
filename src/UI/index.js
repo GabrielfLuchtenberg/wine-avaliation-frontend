@@ -1,8 +1,8 @@
-import Input from './input'
-import Wrapper from './wrapper'
-import Logo from './logo'
-import InputError from './input-error'
-import InputGroup from './input-group'
+import Input from './Input'
+import Wrapper from './Wrapper'
+import Logo from './Logo'
+import InputError from './InputError'
+import InputGroup from './InputGroup'
 import Container from './Container'
 import TextWithLabel from './TextWithLabel'
 
@@ -13,5 +13,5 @@ export {
     InputError,
     InputGroup,
     Container,
-    TextWithLabel
+    TextWithLabel,
 }

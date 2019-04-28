@@ -1,8 +1,7 @@
-import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.View`
+const Container = styled.ScrollView`
     flex: 1;
 `
 
-export default Container;
+export default Container

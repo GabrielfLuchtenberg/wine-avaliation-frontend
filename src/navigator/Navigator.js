@@ -1,23 +1,25 @@
-import { createStackNavigator } from "react-navigation";
-import { HomeScreen, LoginScreen, DetailsScreen } from './screens'
+import { createStackNavigator } from "react-navigation"
+import HomeNavScreen from './Home'
+import DetailsNavScreen from './Details'
+import LoginNavScreen from './Login'
 import routes from './routes.json'
 
-const navigationPersistenceKey = __DEV__ ? "NavigationStateDEV" : null;
+const navigationPersistenceKey = __DEV__ ? "NavigationStateDEV" : null
 
 const appScreens = {
     [routes.login]: {
-        screen: LoginScreen
+        screen: LoginNavScreen
     },
     [routes.home]: {
-        screen: HomeScreen
+        screen: HomeNavScreen
     },
     [routes.details]: {
-        screen: DetailsScreen
+        screen: DetailsNavScreen
     }
 }
 
 const configuration = {
-    initialRouteName: routes.details,
+    initialRouteName: routes.login,
     persistenceKey: navigationPersistenceKey,
     cardStyle: {
         backgroundColor: '#464646'
@@ -33,5 +35,5 @@ const configuration = {
     },
 }
 
-const AppNavigator = createStackNavigator(appScreens, configuration);
-export default AppNavigator;
+const AppNavigator = createStackNavigator(appScreens, configuration)
+export default AppNavigator

@@ -1,5 +1,5 @@
-import { graphql, commitMutation } from "react-relay";
-import env from "../environment";
+import { graphql, commitMutation } from "react-relay"
+import env from "../environment"
 
 //Mutation Query
 const mutation = graphql`
@@ -9,7 +9,7 @@ const mutation = graphql`
       error
     }
   }
-`;
+`
 
 const commit = ({ email, password }) => {
   const variables = {
@@ -17,21 +17,20 @@ const commit = ({ email, password }) => {
       email,
       password
     }
-  };
+  }
   return new Promise((resolve, reject) => {
-    commitMutation(env, { //Passing our enviroment
-      mutation, //Here we pass our GraphQL mutation
-      variables, //Passing our parameters
+    commitMutation(env, {
+      mutation,
+      variables,
       onCompleted: (response, errors) => {
-        resolve(response.LoginEmail); // here you can resolve the User connection updated by the mutation and update your render
-        // alert('A new user has been added') // showing a alert to show that a new user has been added
+        resolve(response.LoginEmail)
       },
       onError: err => {
         console.log(err)
-        alert('An unexpected eeerror occurred')
-      } // showing an alert to show that something happened in the backend
-    });
-  });
-};
+        alert('An unexpected error occurred')
+      }
+    })
+  })
+}
 
-export default commit; 
+export default commit 

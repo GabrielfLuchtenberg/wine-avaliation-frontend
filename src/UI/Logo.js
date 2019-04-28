@@ -1,10 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 // import { View } from 'react-native'
-import SvgUri from 'react-native-svg-uri';
+import SvgUri from 'react-native-svg-uri'
 import styled from 'styled-components'
 
 const uri = 'https://image.flaticon.com/icons/svg/209/209118.svg'
+
+const Wrapper = styled.View`
+    flex-direction: row;
+    justify-content: center;
+`
 
 const Logo = ({ width, height }) => (
     <Wrapper>
@@ -16,7 +21,7 @@ const Logo = ({ width, height }) => (
             }}
         />
     </Wrapper>
-);
+)
 
 Logo.defaultProps = {
     width: 200,
@@ -27,9 +32,4 @@ Logo.propTypes = {
     height: PropTypes.number,
 
 }
-export default Logo;
-
-const Wrapper = styled.View`
-    flex-direction: row
-    justify-content: center
-`
+export default Logo

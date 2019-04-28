@@ -1,29 +1,32 @@
 import React, { Fragment } from 'react'
-import { Text } from 'react-native'
 import styled from 'styled-components'
 import { Formik, ErrorMessage } from 'formik'
-import * as Yup from 'yup';
-import Logo from '../UI/logo';
+import * as Yup from 'yup'
+import Logo from '../UI/Logo'
 import commitLogin from '../mutations/LoginEmailMutation'
-import { InputError, InputGroup } from '../UI';
-import routes from '../routes.json'
-
+import { InputError, InputGroup } from '../UI'
+import routes from '../navigator/routes.json'
+import loginBg from '../assets/login-bg.jpg'
 
 const LoginButton = styled.TouchableOpacity`
     alignSelf: stretch
     height: 50
     borderRadius: 25
-    backgroundColor: #413941
+    backgroundColor: #661141
+    border: 1px solid #440027
     justifyContent: center
     alignItems: center
     marginTop: 15
 `
 
 const LoginPlaceholderText = styled.Text`
-    color: #ffffff
+    color: #ffffff;
+    font-size: 18px;
 `
 
-const Wrapper = styled.View`
+const Wrapper = styled.ImageBackground.attrs({
+    source: loginBg
+})`
     flex: 1
     backgroundColor: #98009D
     justifyContent: center
@@ -47,56 +50,53 @@ const SignupSchema = Yup.object().shape({
         .required('Required')
 })
 
-const Login = (props) => (
-    <Wrapper>
-        <Logo />
-        <Formik
-            initialValues={{ email: '', password: '' }}
-            onSubmit={async values => {
-                const { token } = await commitLogin(values)
-                props.navigation.navigate(routes.home)
-            }}
-            validationSchema={SignupSchema}
-        >
-            {props => (
-                <Fragment>
-                    <InputGroup>
-                        <InputError><ErrorMessage name="email" /></InputError>
-                        <LoginInput
-                            placeholder="E-mail"
-                            autoCapitalize="none"
-                            onChangeText={props.handleChange('email')}
-                            onBlur={props.handleBlur('email')}
-                            value={props.values.email}
-                        />
-                    </InputGroup>
+const Login = (props) => {
+    async function handleSubmit(values) {
+        const { token } = await commitLogin(values)
+        props.navigation.navigate(routes.home)
+    }
+    return (
+        <Wrapper>
+            <Logo />
+            <Formik
+                initialValues={{ email: '', password: '' }}
+                onSubmit={handleSubmit}
+                validationSchema={SignupSchema}
+            >
+                {props => (
+                    <Fragment>
+                        <InputGroup>
+                            <InputError><ErrorMessage name="email" /></InputError>
+                            <LoginInput
+                                placeholder="E-mail"
+                                autoCapitalize="none"
+                                onChangeText={props.handleChange('email')}
+                                onBlur={props.handleBlur('email')}
+                                value={props.values.email}
+                            />
+                        </InputGroup>
 
-                    <InputGroup>
+                        <InputGroup>
+                            <InputError><ErrorMessage name="password" /></InputError>
+                            <LoginInput
+                                placeholder="Password"
+                                secureTextEntry={true}
+                                autoCapitalize="none"
+                                onChangeText={props.handleChange('password')}
+                                onBlur={props.handleBlur('password')}
+                                value={props.values.password}
+                            />
+                        </InputGroup>
 
-                        <InputError><ErrorMessage name="password" /></InputError>
-                        <LoginInput
-                            placeholder="Password"
-                            secureTextEntry={true}
-                            autoCapitalize="none"
-                            onChangeText={props.handleChange('password')}
-                            onBlur={props.handleBlur('password')}
-                            value={props.values.password}
-                        />
-                    </InputGroup>
-
-
-                    <LoginButton onPress={props.handleSubmit} title="Submit" >
-                        <LoginPlaceholderText>Login</LoginPlaceholderText>
-                    </LoginButton>
-                </Fragment>
-            )}
-
-        </Formik>
-    </Wrapper>
-)
-
-Login.navigationOptions = {
-    header: null
+                        <LoginButton onPress={props.handleSubmit} title="Submit" >
+                            <LoginPlaceholderText>Login</LoginPlaceholderText>
+                        </LoginButton>
+                    </Fragment>
+                )}
+            </Formik>
+        </Wrapper>
+    )
 }
 
-export default Login;
+
+export default Login

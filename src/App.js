@@ -1,5 +1,5 @@
-import AppNavigator from './Navigator'
+import AppNavigator from './navigator/Navigator'
 
-import { createAppContainer } from "react-navigation";
+import { createAppContainer } from "react-navigation"
 
-export default createAppContainer(AppNavigator);
+export default createAppContainer(AppNavigator)

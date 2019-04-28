@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-// import deviceStorage from '../storage/device';
-import routes from '../routes.json'
+import routes from '../navigator/routes.json'
+
 const Button = styled.TouchableOpacity`
     height: 25
     borderRadius: 25
@@ -15,12 +15,11 @@ const Text = styled.Text`
 `
 
 const logout = async (navigation) => {
-    // await deviceStorage.deleteJWT()
     navigation.navigate(routes.login)
-};
+}
 
-const LogoutButton = (props) => (
-    <Button onClick={() => logout(props.navigation)}>
+const LogoutButton = ({ navigation }) => (
+    <Button onClick={() => logout(navigation)}>
         <Text>Logout</Text>
     </Button>
 )
