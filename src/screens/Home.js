@@ -4,7 +4,7 @@ import styled from "styled-components";
 import arrow from "../assets/arrow_right.png";
 import SvgUri from "react-native-svg-uri";
 import routes from "../navigator/routes.json";
-import Card from "../UI/Card";
+import Card from "../ui/Card";
 
 const RootContainer = styled.View``;
 

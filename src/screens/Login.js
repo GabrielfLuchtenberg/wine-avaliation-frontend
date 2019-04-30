@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import Logo from "../UI/Logo";
+import Logo from "../ui/Logo";
 import commitLogin from "../mutations/LoginEmailMutation";
-import { InputError, InputGroup } from "../UI";
+import { InputError, InputGroup } from "../ui";
 import routes from "../navigator/routes.json";
 import loginBg from "../assets/login-bg.jpg";
 

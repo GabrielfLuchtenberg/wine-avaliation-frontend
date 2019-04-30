@@ -3,7 +3,7 @@ import styled from "styled-components";
 import wine from "../assets/wine.jpg";
 import winebg from "../assets/winebackground.jpg";
 
-import { Container, TextWithLabel } from "../UI";
+import { Container, TextWithLabel } from "../ui";
 
 const HeaderContainer = styled.ImageBackground.attrs({
   source: winebg
