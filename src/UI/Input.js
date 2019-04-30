@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Input = styled.TextInput`
     fontSize: 18
@@ -9,6 +9,6 @@ const Input = styled.TextInput`
     marginVertical: 10
     alignSelf: stretch
     textAlign: center
-`
+`;
 
-export default Input
+export default Input;

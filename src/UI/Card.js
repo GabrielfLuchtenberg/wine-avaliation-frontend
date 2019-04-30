@@ -1,26 +1,20 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 const CardWrapper = styled.View`
-    backgroundColor: white;
-    height: 130px;
-    border: 1px solid #333333;
-    border-radius:1px;
-    margin-bottom:15px;
-    flex:1;
-    flex-direction: row;
-`
+  backgroundcolor: white;
+  height: 130px;
+  border: 1px solid #333333;
+  border-radius: 1px;
+  margin-bottom: 15px;
+  flex: 1;
+  flex-direction: row;
+`;
 
-const Card = ({ children }) => (
-    <CardWrapper>
-        {
-            children
-        }
-    </CardWrapper>
-)
+const Card = ({ children }) => <CardWrapper>{children}</CardWrapper>;
 
 Card.propTypes = {
-    children: PropTypes.node.isRequired
-}
-export default Card
+  children: PropTypes.node.isRequired
+};
+export default Card;

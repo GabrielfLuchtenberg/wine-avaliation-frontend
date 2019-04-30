@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import routes from '../navigator/routes.json'
+import React from "react";
+import styled from "styled-components";
+import routes from "../navigator/routes.json";
 
 const Button = styled.TouchableOpacity`
     height: 25
@@ -9,19 +9,19 @@ const Button = styled.TouchableOpacity`
     justifyContent: center
     alignItems: center
     marginTop: 15
-`
+`;
 const Text = styled.Text`
-    font-size:16
-`
+  font-size: 16;
+`;
 
-const logout = async (navigation) => {
-    navigation.navigate(routes.login)
-}
+const logout = async navigation => {
+  navigation.navigate(routes.login);
+};
 
 const LogoutButton = ({ navigation }) => (
-    <Button onClick={() => logout(navigation)}>
-        <Text>Logout</Text>
-    </Button>
-)
+  <Button onClick={() => logout(navigation)}>
+    <Text>Logout</Text>
+  </Button>
+);
 
-export default LogoutButton
+export default LogoutButton;

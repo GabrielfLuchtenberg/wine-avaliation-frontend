@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Wrapper = styled.View`
-    flex:1
-`
+  flex: 1;
+`;
 
-export default Wrapper 
+export default Wrapper;

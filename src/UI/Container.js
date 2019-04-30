@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Container = styled.ScrollView`
-    flex: 1;
-`
+  flex: 1;
+`;
 
-export default Container
+export default Container;

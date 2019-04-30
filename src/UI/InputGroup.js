@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const InputGroup = styled.View`
-    marginTop: 15
-`
+  margintop: 15;
+`;
 
-export default InputGroup
+export default InputGroup;
