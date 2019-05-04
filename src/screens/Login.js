@@ -1,5 +1,5 @@
 import React from "react";
-import { KeyboardAvoidingView } from "react-native";
+import { KeyboardAvoidingView, StatusBar } from "react-native";
 import styled from "styled-components";
 import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -58,6 +58,7 @@ const Login = ({ navigation }) => {
   return (
     <Wrapper>
       <KeyboardAvoidingView behavior="padding" enabled>
+        <StatusBar hidden />
         <Logo />
         <Formik
           initialValues={{ email: "", password: "" }}
