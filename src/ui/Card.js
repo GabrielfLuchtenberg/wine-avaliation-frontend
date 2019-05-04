@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const CardWrapper = styled.View`
-  backgroundcolor: white;
+  background-color: white;
   height: 130px;
   border: 1px solid #333333;
   border-radius: 1px;

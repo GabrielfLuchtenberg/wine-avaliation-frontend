@@ -1,12 +1,10 @@
-import React from 'react'
-import HomeQuery from '../queries/HomeQuery'
+import React from "react";
+import HomeQuery from "../queries/HomeQuery";
 
-const Home = (props) => (
-    <HomeQuery {...props} />
-)
+const Home = props => <HomeQuery {...props} />;
 
 Home.navigationOptions = {
-    title: 'Home',
-}
+  title: "Home"
+};
 
-export default Home
+export default Home;

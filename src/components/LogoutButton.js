@@ -4,11 +4,11 @@ import routes from "../navigator/routes.json";
 
 const Button = styled.TouchableOpacity`
     height: 25
-    borderRadius: 25
-    backgroundColor: #413941
-    justifyContent: center
-    alignItems: center
-    marginTop: 15
+    border-radius: 25
+    background-color: #413941
+    justify-content: center
+    align-items: center
+    margin-top: 15
 `;
 const Text = styled.Text`
   font-size: 16;
